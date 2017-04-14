@@ -1,0 +1,227 @@
+/*NAVBAR CUSTOM COLOR----------------------------------------------------------------------------------------------------------------*/
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+	color: rgb(255, 255, 255);
+}
+
+#custom-bootstrap-menu.navbar-default {
+	font-size: 14px;
+	background-color: rgb(43, 154, 219);
+	border-width: 0px;
+	border-radius: 0px;
+	margin: 0px;
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a {
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(248, 248, 248, 0);
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:hover,
+	#custom-bootstrap-menu.navbar-default .navbar-nav>li>a:focus {
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(43, 168, 242, 1);
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a,
+	#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:hover,
+	#custom-bootstrap-menu.navbar-default .navbar-nav>.active>a:focus {
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(60, 181, 252, 1);
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+	border-color: #3cb5fc;
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+	#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+	background-color: #3cb5fc;
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+	background-color: white;
+}
+
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+	#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+	background-color: white;
+}
+
+.navbar-brand {
+	font-size: 30pt;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+/*CAROUSEL*/
+.anuncio-principal {
+	object-fit: cover;
+	max-height: 388px;
+	overflow: hidden;
+	
+}
+
+/*GRID PROPERTIES-------------------------------------------------------------------------------------------------------------------*/
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+	height: 450px
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+	padding-top: 20px;
+	height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+	background-color: #555;
+	color: white;
+	padding: 15px;
+}
+
+body {
+	background: url('../img/background.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: #555;
+}
+
+.contenedor-principal {
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+	.sidenav {
+		height: auto;
+		padding: 15px;
+	}
+	.row.content {
+		height: auto;
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+/*----------------------
+Tarjetas
+----------------------*/
+.tarjeta {
+	color: white;
+	text-align: left;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	margin-bottom: 20px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgba(0, 0, 0, 0.5);
+	border-left: 10px solid rgb(54, 76, 112);
+}
+
+.tarjeta-titulo {
+	background-color: rgb(43, 154, 219);
+	font-size: 16pt;
+	padding: 5px;
+}
+
+.tarjeta-fecha {
+	background-color: rgb(153, 217, 234);
+	color: black;
+	font-size: 12pt;
+	text-align: center;
+	padding: 5px;
+}
+
+.tarjeta-cuerpo {
+	background-color: rgb(240, 240, 240);
+	color: black;
+	position: relative;
+	overflow: hidden;
+}
+
+.tarjeta-img {
+	display:block;
+	background-color: green;
+	height: 180px;
+	width: 180px;
+	float: left;
+	overflow: hidden;
+}
+
+.tarjeta-img>img {
+	display:block;
+	height: 180px;
+	width: 100%;
+	
+}
+
+.tarjeta-info {
+	background-color: rgb(240, 240, 240);
+	height: 180px;
+}
+
+.vertical-center {
+	display: block;
+	vertical-align: middle;
+}
+
+.tarjeta-hr {
+	margin-top: 4px;
+	margin-bottom: 4px;
+	width: 100%;
+	border-color: black;
+}
+
+.tarjeta-tags {
+	color: blue;
+	overflow: auto;
+	padding-left: 6px;
+}
+
+.tarjeta-descripcion {
+	text-align: left;
+	padding-left: 1em;
+	height: 9ex;
+	overflow: hidden;
+}
+
+.tarjeta-info>p{
+	padding-left: 200px;
+	padding-right: 4px;
+	margin-bottom: 4px;
+}
+
+
+/*GENERICO*/
+.img-responsive-h {
+	max-height: 100%;
+	max-width: auto;
+}
+
+.img-responsive-w {
+	max-height: auto;
+	max-width: 100%;
+}
+
+.image {
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+	max-height: 240px;
+}
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+	background-color: black;
+	color: white;
+	padding: 15px;
+}

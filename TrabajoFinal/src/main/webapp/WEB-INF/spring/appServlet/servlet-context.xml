@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<context:property-placeholder location="classpath:application.properties" />
+
+	<context:component-scan base-package="es.josemaria.aparicio.controller" />
+
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<mvc:resources mapping="/resources/**" location="classpath:/resources/resources" />
+
+	<mvc:annotation-driven />
+
+	<beans:bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="url"
+			value="jdbc:mysql://localhost:3306/bd_planizator" />
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="root" />
+	</beans:bean>
+
+	<beans:bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="packagesToScan">
+			<beans:list>
+				<beans:value>es.josemaria.aparicio.bean</beans:value>
+			</beans:list>
+		</beans:property>
+		<beans:property name="hibernateProperties">
+			<beans:props>
+				<beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
+				</beans:prop>
+				<beans:prop key="hibernate.show_sql">true</beans:prop>
+				<beans:prop key="hibernate.format_sql">true</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+
+	<beans:bean id="userDAO" class="es.josemaria.aparicio.dao.UserDAOImpl">
+		<beans:property name="sessionFactory" ref="sessionFactory"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="roleDAO" class="es.josemaria.aparicio.dao.RoleDAOImpl">
+		<beans:property name="sessionFactory" ref="sessionFactory"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="eventDAO" class="es.josemaria.aparicio.dao.EventDAOImpl">
+		<beans:property name="sessionFactory" ref="sessionFactory"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<beans:property name="sessionFactory" ref="sessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans:beans>
